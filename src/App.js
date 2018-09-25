@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
 import AuthService from './services'
 
-import Apartments from './pages/apartments/All'
-import Apartment from './pages/apartments/Show'
-import ApartmentCreate from './pages/apartments/New'
-import ApartmentEdit from './pages/apartments/Edit'
 
-import Register from './pages/Register'
-import Login from './pages/Login'
+import ApartmentContainer from './containers/ApartmentContainer'
+import Register from './pages/users/Register'
+import Login from './pages/users/Login'
 
 class App extends Component {
 	render() {
@@ -20,10 +17,7 @@ class App extends Component {
 				{(auth.loggedIn())
 				// if logged in
 				? <Switch>
-					<Route path="/apartments" component={Apartments} />
-					<Route path="/apartments/:id" component={Apartment} />
-					<Route path="/apartments/new" component={ApartmentCreate} />
-					<Route path="/apartments/:id/edit" component={ApartmentEdit} />
+					<Route path="/apartments" component={ApartmentContainer} />
 				</Switch>
 				// if not logged in (ie Guest User)
 				: <Switch>
