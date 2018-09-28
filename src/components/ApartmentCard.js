@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 class ApartmentCard extends Component {
 	render() {
 		let { apartment } = this.props
+
 		return (
 			<Link to="#">
 				<article className="cardWrapper">
